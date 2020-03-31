@@ -2,25 +2,29 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as routes from 'constants/routes';
 import SectionHeader from 'components/SectionHeader';
+import pyv from '../../apis/pyv';
 
-const introTipsDummy = [
-  {
-    order: 1,
-    content: `Browse candidates for mayor, councillor, Park Board commissioner, and school trustee, then add your favourites to your plan.`
-  },
-  {
-    order: 2,
-    content: `Answer 3 Capital Plan borrowing questions about whether the City can borrow money to help pay for certain projects.`
-  },
-  {
-    order: 3,
-    content: `Choose from 9 voting days and over 100 locations to fit your schedule.`
-  },
-  {
-    order: 4,
-    content: `Email your plan and add voting day details to your calendar. Your plan will show your chosen candidates in the order you’ll find them on your ballot.`
-  }
-];
+
+// The dummy data is replaced by calling the api/steps
+
+// const introTipsDummy = [
+//   {
+//     order: 1,
+//     content: `Browse candidates for mayor, councillor, Park Board commissioner, and school trustee, then add your favourites to your plan.`
+//   },
+//   {
+//     order: 2,
+//     content: `Answer 3 Capital Plan borrowing questions about whether the City can borrow money to help pay for certain projects.`
+//   },
+//   {
+//     order: 3,
+//     content: `Choose from 9 voting days and over 100 locations to fit your schedule.`
+//   },
+//   {
+//     order: 4,
+//     content: `Email your plan and add voting day details to your calendar. Your plan will show your chosen candidates in the order you’ll find them on your ballot.`
+//   }
+// ];
 
 const disclaimerDummy = [
   `This election tool is only intended to help you plan your vote. By using it, you are not actually casting a vote.
@@ -31,6 +35,12 @@ const disclaimerDummy = [
 ];
 
 class Home extends Component {
+
+  _isMounted = false;
+  state = {
+    steps: ''
+  }
+
   startPlanning = () => {
     return (
       <Link
@@ -54,15 +64,34 @@ class Home extends Component {
   };
 
   introTips = () => {
+    let { steps } = this.state;
+    if (!steps) {
+      return;
+    }
+
     return (
+
+      // Instead of using static dummy data, we call api/steps
+
+      // <ul className='intro-tips'>
+      //   {introTipsDummy.map(tip => {
+      //     return (
+      //       <li>
+      //         <span>{tip.order}</span>
+      //         {tip.content}
+      //       </li>
+      //     );
+      //   })}
+      // </ul>
+
       <ul className='intro-tips'>
-        {introTipsDummy.map(tip => {
+        {steps.map(step => {
           return (
             <li>
-              <span>{tip.order}</span>
-              {tip.content}
+              <span>{step.stepNumber}</span>
+              {step.stepTitle}
             </li>
-          );
+          )
         })}
       </ul>
     );
@@ -76,6 +105,26 @@ class Home extends Component {
       </>
     );
   };
+
+  loadApi = async () => {
+    const step = await pyv.get('/api/steps');
+    const data = { step: step.data };
+    return data;
+  };
+
+  componentDidMount() {
+    this._isMounted = true;
+    this.loadApi().then(response => {
+      this.setState({
+        steps: response.step
+      });
+      console.log(this.state)
+    });
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
 
   render() {
     return (
@@ -110,18 +159,6 @@ class Home extends Component {
                     src='https://vancouver.ca/plan-your-vote/img/intro_right_legend.png'
                     alt='intro'
                   />
-                  <span className='intro-pointer candidates'>
-                    Step 1 Your candidate selections
-                  </span>
-                  <span className='intro-pointer capital-plan'>
-                    Step 2 Your Capital Plan borrowing answers
-                  </span>
-                  <span className='intro-pointer details'>
-                    Step 3 Your voting day and location details
-                  </span>
-                  <span className='intro-pointer checklist'>
-                    Step 4 Your voting checklist
-                  </span>
                 </div>
               </div>
 
