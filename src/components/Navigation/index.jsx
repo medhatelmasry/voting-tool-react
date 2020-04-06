@@ -21,7 +21,8 @@ const Navigation = ({ logo }) => {
           <img
             className='navbar-brand'
             id='nav-logo'
-            src="https://planyourvote-cms.azurewebsites.net/Themes/getImg"
+            // src="https://planyourvote-cms.azurewebsites.net/Themes/getImg"
+            src="http://localhost:5000/api/Themes/getImg"
             alt={logo.description}
           />
         </Link>

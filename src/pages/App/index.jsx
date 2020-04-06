@@ -44,7 +44,7 @@ class App extends Component {
   }
 
   loadApiData = async () => {
-    await fetch(`${CMS_BASE_URL}/api/theme`)
+    await fetch(`${CMS_BASE_URL}/api/themes`)
       .then(res => res.json())
       .then(result => {
         this.setState({
