@@ -57,10 +57,13 @@ class App extends Component {
     await fetch(`${CMS_BASE_URL}/api/socialmedia`)
         .then(res=> res.json())
         .then(result => {
+
           this.setState( {
-            socialMedia: result.socialMedia
+            socialMedia: result.socialMedias
           });
         });
+
+    
   };
   
   setTheme = () => {

@@ -5,6 +5,7 @@
   "dependencies": {
     "@mapbox/mapbox-gl-geocoder": "^4.3.0",
     "axios": "^0.18.0",
+    "dotenv": "^8.2.0",
     "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "^0.54.0",
     "pdfjs": "^2.3.2",
@@ -39,7 +40,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "cross-env": "^7.0.2"
-  }
+  "devDependencies": {}
 }
