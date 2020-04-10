@@ -41,6 +41,8 @@ class App extends Component {
     this.loadApiData().then(() => {
       this.setTheme();
     });
+
+    console.log(process.env);
   }
 
   loadApiData = async () => {
