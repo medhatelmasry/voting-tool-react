@@ -9,6 +9,8 @@
     "mapbox-gl": "^0.54.0",
     "pdfjs": "^2.3.2",
     "react": "^16.8.6",
+    "react-add-to-calendar": "^0.1.5",
+    "react-datepicker": "^2.14.1",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^5.0.0",
