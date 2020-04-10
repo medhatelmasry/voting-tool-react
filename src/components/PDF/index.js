@@ -176,7 +176,7 @@ function buildLastPage(doc) {
 
 function buildMiddlePage(doc, check, data) {
 
-    const { racesSummary: allNames, candidatesSelected } = data;
+    const { race: allNames, candidatesSelected } = data;
     allNames.sort((a, b) => (a.ballotOrder - b.ballotOrder))
 
     const header = doc.header().table({ widths: [null], paddingBottom: 1 * pdfjs.cm }).row()
