@@ -22,7 +22,7 @@ const MultipleChoiceQuestion = ({
           )}
           value={item.issueOptionInfo}
         />
-        {item.issueOptionInfo}
+        {" " + item.issueOptionInfo}
       </div>
     );
   });

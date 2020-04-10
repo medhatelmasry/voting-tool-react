@@ -41,10 +41,12 @@ class App extends Component {
     this.loadApiData().then(() => {
       this.setTheme();
     });
+
+    console.log(process.env);
   }
 
   loadApiData = async () => {
-    await fetch(`${CMS_BASE_URL}/api/theme`)
+    await fetch(`${CMS_BASE_URL}/api/themes`)
       .then(res => res.json())
       .then(result => {
         this.setState({
@@ -55,10 +57,13 @@ class App extends Component {
     await fetch(`${CMS_BASE_URL}/api/socialmedia`)
         .then(res=> res.json())
         .then(result => {
+
           this.setState( {
             socialMedia: result.socialMedias
           });
         });
+
+    
   };
   
   setTheme = () => {

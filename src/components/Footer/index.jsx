@@ -14,6 +14,8 @@ const socialIcon = (id, className, link) => {
 };
 
 const Footer = ({ logo, socialMedia }) => {
+  
+  console.log(socialMedia);
   return (
     <footer>
       <div className='container'>

@@ -161,16 +161,17 @@ function buildLastPage(doc) {
     const header = doc.header().table({ widths: [null], paddingBottom: 1 * pdfjs.cm }).row()
     header.cell().text('MY PLANNED RESPONSES TO CAPITAL PLAN BORROWING QUESTIONS:', { textAlign: 'center', fontSize: 18, font: fonts.HelveticaBold });
 
+    if(mcqdata != null) {
+        mcqdata.forEach(element => {
+            let cell = doc.cell({ paddingTop: 0.5 * pdfjs.cm, paddingBottom: 0.5 * pdfjs.cm, borderBottomWidth: 1.5 * pdfjs.mm, lineHeight: 1 });
+            cell.text(element.title, { fontSize: 16, font: fonts.HelveticaBold });
+            cell.text({ fontSize: 14, lineHeight: 1.35 })
+                .add(element.description, { fontSize: 13, font: fonts.Helvetica })
+            cell.text({ fontSize: 14, lineHeight: 1.35 })
+                .add(`Your Answer: ${element.answer}`, { fontSize: 13, font: fonts.HelveticaBold })
 
-    mcqdata.forEach(element => {
-        let cell = doc.cell({ paddingTop: 0.5 * pdfjs.cm, paddingBottom: 0.5 * pdfjs.cm, borderBottomWidth: 1.5 * pdfjs.mm, lineHeight: 1 });
-        cell.text(element.title, { fontSize: 16, font: fonts.HelveticaBold });
-        cell.text({ fontSize: 14, lineHeight: 1.35 })
-            .add(element.description, { fontSize: 13, font: fonts.Helvetica })
-        cell.text({ fontSize: 14, lineHeight: 1.35 })
-            .add(`Your Answer: ${element.answer}`, { fontSize: 13, font: fonts.HelveticaBold })
-
-    })
+        })
+    }
 }
 
 function buildMiddlePage(doc, check, data) {

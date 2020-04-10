@@ -57,6 +57,10 @@ class Review extends Component {
     
     // store candidates info
     candidatesToLink = "YOUR CANDIDATES IN BALLOT ORDER \n\n";
+    if(candidates==null){
+      alert("Please select at least one candidate");
+      return;
+    }
     if(candidates.length){
       for(let i = 0; i < candidates.length; i++){
         candidatesToLink += "Name: " + candidates[i].name + "\n"
