@@ -30,7 +30,9 @@ const disclaimerDummy = [
     altered in any way by the City.`
 ];
 
+
 class Home extends Component {
+  
   startPlanning = () => {
     return (
       <Link
