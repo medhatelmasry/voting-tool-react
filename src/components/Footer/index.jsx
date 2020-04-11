@@ -21,13 +21,13 @@ const Footer = ({ logo, socialMedia }) => {
           <div className='col-md-6'>
             <img id='footer-logo' src={logo.value} alt={logo.description} />
             <div id='footer-copyright'>&copy; 2019 Vancouver</div>
-            <ul id='footer-nav'>
-              <li>
+            <ul id='footer-nav' role="tablist"> 
+              <li role="tab">
                 <a href='https://vancouver.ca/your-government/terms-of-use.aspx'>
                   Terms of Use
                 </a>
               </li>
-              <li>
+              <li role="tab">
                 <a href='https://vancouver.ca/your-government/privacy-policy.aspx'>
                   Privacy Policy
                 </a>
