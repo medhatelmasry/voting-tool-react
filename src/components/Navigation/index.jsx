@@ -41,13 +41,17 @@ const Navigation = ({ logo }) => {
           className='collapse navbar-collapse d-md-inline-flex flex-md-row-reverse'
           id='navbarCollapse'
         >
-          <ul className='navbar-nav flex-grow'>
+          <ul className='navbar-nav flex-grow' role="tablist">
+            <li>
             {navItem('Home', routes.HOME, 'Home: Link to main page.')}
+              </li>
+            <li>
             {navItem(
               'Start Planning',
               routes.SELECTION,
               'Start Voting: link to step 1 of planning your vote. Reminder: This is a planning application, actual voting must be done in person on election day.'
             )}
+              </li>
           </ul>
         </div>
       </div>
