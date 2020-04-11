@@ -59,7 +59,7 @@ class App extends Component {
         .then(result => {
 
           this.setState( {
-            socialMedia: result.socialMedias
+            socialMedia: result.socialMedia
           });
         });
 

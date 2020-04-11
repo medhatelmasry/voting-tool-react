@@ -22,7 +22,7 @@ const Navigation = ({ logo }) => {
             className='navbar-brand'
             id='nav-logo'
             // src="https://planyourvote-cms.azurewebsites.net/Themes/getImg"
-            src="http://localhost:5000/api/Themes/getImg"
+            src={logo.value}
             alt={logo.description}
           />
         </Link>
