@@ -5,6 +5,7 @@ import * as routes from 'constants/routes';
 const SelectionNavitation = () => {
   return (
     <nav className="nav nav-justified">
+      <div> lol</div>
           <Link to={routes.CANDIDATES} className="nav-item nav-link col-sm">Candidates</Link>
           <Link to={routes.CAPITAL} className="nav-item nav-link col-sm">Questions</Link>
           <Link to={routes.SCHEDULE} className="nav-item nav-link col-sm">Schedule</Link>

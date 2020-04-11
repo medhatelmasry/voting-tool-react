@@ -60,6 +60,8 @@ class Map extends Component {
   };
 
   renderMarkers = () => {
+    console.log("inside render markers");
+    console.log(this.props.pollingPlaces);
     this.clearAllMarkers();
     this.props.pollingPlaces.map(pollingPlace => {
       return this.addMarker(pollingPlace);
