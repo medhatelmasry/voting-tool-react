@@ -34,15 +34,12 @@ const disclaimerDummy = [
     altered in any way by the City.`
 ];
 
-
 class Home extends Component {
-
 
   _isMounted = false;
   state = {
     steps: ''
   }
-
 
   startPlanning = () => {
     return (
